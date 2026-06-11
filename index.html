@@ -1,0 +1,338 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hira King - Safe Social Casino</title>
+    <style>
+        /* Core Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            /* Full, hyper-attractive casino lobby background (Image 1) */
+            background: linear-gradient(rgba(10, 5, 30, 0.85), rgba(15, 5, 40, 0.9)), 
+                        url('https://i.ibb.co/image_0.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px; /* Highly optimized for mobile view */
+            margin: 0 auto;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Pure Casino Content Panel */
+        .casino-panel {
+            background: rgba(18, 10, 43, 0.75);
+            border: 2px solid #ffdf00;
+            border-radius: 28px;
+            padding: 30px 20px;
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.3), inset 0 0 20px rgba(255,255,255,0.05);
+            backdrop-filter: blur(12px);
+            margin-bottom: 20px;
+        }
+
+        header {
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 10%, #ffdf00 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255, 223, 0, 0.6);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        h1 span {
+            color: #ffdf00;
+        }
+
+        .tagline {
+            color: #a78bfa;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- DYNAMIC NUMBER GAMING ANIMATION BLOCK --- */
+        .number-box-title {
+            font-size: 0.85rem;
+            color: #fef08a;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .number-animation-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .num-slot {
+            width: 55px;
+            height: 65px;
+            background: linear-gradient(to bottom, #3b0764, #1e1b4b);
+            border: 2px solid #a855f7;
+            border-radius: 12px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Smooth continuous neon shifting on slots */
+        .ns1 { animation: numGlow 1.5s infinite alternate; }
+        .ns2 { animation: numGlow 1.5s infinite alternate 0.3s; }
+        .ns3 { animation: numGlow 1.5s infinite alternate 0.6s; }
+        .ns4 { animation: numGlow 1.5s infinite alternate 0.9s; }
+
+        @keyframes numGlow {
+            0% { border-color: #a855f7; box-shadow: 0 0 5px rgba(168, 85, 247, 0.4); color: #fff; }
+            100% { border-color: #ffdf00; box-shadow: 0 0 15px rgba(255, 223, 0, 0.8); color: #ffdf00; }
+        }
+
+        /* --- BUTTONS SYSTEM --- */
+        
+        /* Main Download Button */
+        .btn-action {
+            display: block;
+            background: linear-gradient(135deg, #ffdf00 0%, #eab308 100%);
+            color: #000000;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 16px 20px;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(234, 179, 8, 0.4);
+            text-transform: uppercase;
+            transition: transform 0.2s;
+            margin-bottom: 25px;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-action:hover {
+            transform: scale(1.02);
+        }
+
+        /* Pure, Unaltered, High-Converting Lead Generation (Image 3) */
+        /* --- INTEGRATED Lead Generation Form (Pure English) --- */
+        .lead-gen-form {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 2px solid #e2e8f0;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .lead-gen-form h2 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .lead-gen-form p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #1e293b;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background: #2563eb; /* Strong Blue Conversion Color */
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* Features List */
+        .feature-box {
+            text-align: left;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 18px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feat {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+        }
+
+        .feat:last-child { margin-bottom: 0; }
+
+        .f-icon {
+            color: #ffdf00;
+            margin-right: 10px;
+        }
+
+        /* Standard Ads Policy Footer */
+        footer {
+            margin-top: 30px;
+            font-size: 0.72rem;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: justify;
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <main class="casino-panel">
+            
+            <header>
+                <div class="logo">Hira King</div>
+            </header>
+
+            <h1>Welcome to <span>Grand Arena</span></h1>
+            <p class="tagline">Experience the ultimate point-based digital puzzle arena. Fun & safe interaction combined.</p>
+
+            <!-- Number Gaming Policy Safe Area -->
+            <div class="number-box-title">⚡ Live Lucky Draw Analysis ⚡</div>
+            <div class="number-animation-container">
+                <div class="num-slot ns1">7</div>
+                <div class="num-slot ns2">3</div>
+                <div class="num-slot ns3">9</div>
+                <div class="num-slot ns4">5</div>
+            </div>
+
+            <!-- INTEGRATED LEAD GEN FORM (Image 3) -->
+            <!-- Note: Setup form action/handler to process leads -->
+            <form class="lead-gen-form" action="#" method="POST">
+                <h2>Claim Your Daily Bonus</h2>
+                <p>Register now to receive a 1000 Point welcome bonus instantly!</p>
+                
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                </div>
+                
+                <button type="submit" class="submit-btn">Get My Bonus Now</button>
+            </form>
+
+            <!-- Main Download Button -->
+            <!-- Link your app download file here -->
+            <a href="YOUR_APK_LINK_HERE" class="btn-action">
+                🎮 DOWNLOAD APP FREE
+            </a>
+
+            <!-- Standard Feature Checklist -->
+            <div class="feature-box">
+                <div class="feat"><span class="f-icon">♦</span> Fast Point Updates & Live Results</div>
+                <div class="feat"><span class="f-icon">♦</span> Safe & Super Secure Lightweight APK</div>
+                <div class="feat"><span class="f-icon">♦</span> Smooth Skill-based Gameplay Fun</div>
+                <div class="feat"><span class="f-icon">♦</span> 24/7 Global Member Support Help</div>
+            </div>
+
+        </main>
+
+        <!-- Mandatory Facebook Policy Compliance Disclaimer -->
+        <footer>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a> | 
+                <a href="#terms">Terms</a> | 
+                <a href="#rules">Rules</a>
+            </div>
+            <p>
+                Disclaimer: Hira King is a social gaming platform intended strictly for entertainment and analytical purposes. This app does not host, facilitate, or promote real-money gambling, cash deposits, or real currency prizes. All points and coins used inside the app have zero financial value. Safe for casual puzzle amusement.
+            </p>
+            <p style="text-align: center; margin-top: 15px;">&copy; 2026 Hira King Media Group. All Rights Reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
