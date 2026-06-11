@@ -1,338 +1,172 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hira King - Safe Social Casino</title>
+    <title>Hira King - Official</title>
     <style>
-        /* Core Reset */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        /* Reset and Base Styles */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
         }
-
-        body {
-            /* Full, hyper-attractive casino lobby background (Image 1) */
-            background: linear-gradient(rgba(10, 5, 30, 0.85), rgba(15, 5, 40, 0.9)), 
-                        url('https://i.ibb.co/image_0.png') no-repeat center center fixed;
-            background-size: cover;
-            color: #ffffff;
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-            display: flex;
-            align-items: center;
+        
+        body { 
+            /* 🌟 AGAR BACKGROUND IMAGE BADALNI HO, TO NICHLE URL('...') MEIN LINK UPDATE KAREIN 🌟 */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
+                        url('https://i.ibb.co/MDbBLDmL/casino.jpg') no-repeat center center fixed; 
+            background-size: cover; 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
             justify-content: center;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        .container {
-            width: 100%;
-            max-width: 480px; /* Highly optimized for mobile view */
-            margin: 0 auto;
-            padding: 15px;
-            text-align: center;
-            position: relative;
+        /* Ambient Outer Glow behind the card just like the image */
+        body::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.25) 0%, transparent 70%);
+            pointer-events: none;
             z-index: 1;
         }
 
-        /* Pure Casino Content Panel */
-        .casino-panel {
-            background: rgba(18, 10, 43, 0.75);
-            border: 2px solid #ffdf00;
-            border-radius: 28px;
-            padding: 30px 20px;
-            box-shadow: 0 0 35px rgba(212, 175, 55, 0.3), inset 0 0 20px rgba(255,255,255,0.05);
-            backdrop-filter: blur(12px);
-            margin-bottom: 20px;
+        /* 🌟 CHANGED: Central Premium Card Box Design & Color 🌟 */
+        .main-card {
+            position: relative;
+            z-index: 2;
+            /* Transparent Luxury Dark Purple-Black Theme */
+            background: rgba(15, 10, 28, 0.75); 
+            /* Glassmorphism Effect: Peeche ka background smooth blur hoga */
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            /* Crisp Premium Gold Border */
+            border: 2.5px solid rgba(255, 215, 0, 0.6); 
+            border-radius: 28px; /* Smooth curved corners */
+            padding: 50px 30px;
+            width: 90%;
+            max-width: 430px;
+            text-align: center;
+            /* Dual Glow Effect: Gold neon look outside the box */
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 215, 0, 0.35);
         }
 
-        header {
-            padding: 15px 0;
-        }
-
-        .logo {
-            font-size: 2.8rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #fff 10%, #ffdf00 50%, #d4af37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(255, 223, 0, 0.6);
-        }
-
-        h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        h1 span {
-            color: #ffdf00;
-        }
-
-        .tagline {
-            color: #a78bfa;
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* --- DYNAMIC NUMBER GAMING ANIMATION BLOCK --- */
-        .number-box-title {
-            font-size: 0.85rem;
-            color: #fef08a;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 10px;
+        /* Typography - Exact Matches */
+        h1 { 
+            color: #ffd700; 
+            font-size: 3.4rem; 
             font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            font-family: 'Times New Roman', Times, serif; 
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        .number-animation-container {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
+        .sub-text { 
+            color: #ffffff; 
+            font-size: 1.05rem; 
+            margin-bottom: 30px; 
+            font-weight: 700; 
+            letter-spacing: 0.8px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
+        
+        /* Pot Wrapper Position Fix */
+        .pot-wrapper {
+            position: relative;
+            width: 100%;
+            height: 150px;
             margin-bottom: 30px;
         }
 
-        .num-slot {
-            width: 55px;
-            height: 65px;
-            background: linear-gradient(to bottom, #3b0764, #1e1b4b);
-            border: 2px solid #a855f7;
-            border-radius: 12px;
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Smooth continuous neon shifting on slots */
-        .ns1 { animation: numGlow 1.5s infinite alternate; }
-        .ns2 { animation: numGlow 1.5s infinite alternate 0.3s; }
-        .ns3 { animation: numGlow 1.5s infinite alternate 0.6s; }
-        .ns4 { animation: numGlow 1.5s infinite alternate 0.9s; }
-
-        @keyframes numGlow {
-            0% { border-color: #a855f7; box-shadow: 0 0 5px rgba(168, 85, 247, 0.4); color: #fff; }
-            100% { border-color: #ffdf00; box-shadow: 0 0 15px rgba(255, 223, 0, 0.8); color: #ffdf00; }
-        }
-
-        /* --- BUTTONS SYSTEM --- */
-        
-        /* Main Download Button */
-        .btn-action {
+        /* The 100% Same Pot Visual */
+        .pot-visual {
+            width: 160px; 
+            height: auto; 
             display: block;
-            background: linear-gradient(135deg, #ffdf00 0%, #eab308 100%);
-            color: #000000;
-            font-size: 1.3rem;
-            font-weight: 800;
-            text-decoration: none;
-            padding: 16px 20px;
-            border-radius: 50px;
-            box-shadow: 0 8px 25px rgba(234, 179, 8, 0.4);
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+            filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.6));
+        }
+
+        /* Dynamic Coin Particle System Over Pot */
+        .live-coin {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: radial-gradient(circle, #fff, #ffd700 60%, #b8860b);
+            border: 1px solid #fff;
+            border-radius: 50%;
+            z-index: 6; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .lc1 { left: 35%; top: 20px; animation: coinFloat 1.4s linear infinite; }
+        .lc2 { left: 48%; top: 10px; animation: coinFloat 1.8s linear infinite; animation-delay: 0.4s; }
+        .lc3 { left: 62%; top: 25px; animation: coinFloat 1.6s linear infinite; animation-delay: 0.9s; }
+
+        @keyframes coinFloat {
+            0% { transform: translateY(-20px) rotateY(0deg) scale(0.8); opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { transform: translateY(60px) rotateY(360deg) scale(1.1); opacity: 0; }
+        }
+
+        /* Luxury Gold Button Gradient */
+        .btn-gold { 
+            display: block; 
+            background: linear-gradient(180deg, #fce08d 0%, #d4af37 50%, #aa8210 100%); 
+            padding: 16px 20px; 
+            border-radius: 12px; 
+            color: #000000; 
+            text-decoration: none; 
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            margin-bottom: 18px; 
+            border: 1.5px solid #fff; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             text-transform: uppercase;
             transition: transform 0.2s;
-            margin-bottom: 25px;
-            border: 2px solid #ffffff;
         }
-
-        .btn-action:hover {
+        .btn-gold:hover { 
             transform: scale(1.02);
         }
 
-        /* Pure, Unaltered, High-Converting Lead Generation (Image 3) */
-        /* --- INTEGRATED Lead Generation Form (Pure English) --- */
-        .lead-gen-form {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 25px;
-            border: 2px solid #e2e8f0;
-            text-align: left;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        /* WhatsApp Button Gradient */
+        .btn-green { 
+            display: block; 
+            background: linear-gradient(180deg, #1ebd56 0%, #128c3e 100%); 
+            padding: 16px 20px; 
+            border-radius: 12px; 
+            color: #ffffff; 
+            text-decoration: none; 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
         }
-
-        .lead-gen-form h2 {
-            font-size: 1.5rem;
-            color: #1e293b;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-align: center;
-        }
-
-        .lead-gen-form p {
-            font-size: 0.95rem;
-            color: #475569;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.9rem;
-            color: #1e293b;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            border: 1.5px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 1rem;
-            color: #1e293b;
-        }
-
-        .submit-btn {
-            display: block;
-            width: 100%;
-            background: #2563eb; /* Strong Blue Conversion Color */
-            color: #ffffff;
-            font-size: 1.1rem;
-            font-weight: 700;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .submit-btn:hover {
-            background: #1d4ed8;
-        }
-
-        /* Features List */
-        .feature-box {
-            text-align: left;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 18px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .feat {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            color: #e2e8f0;
-        }
-
-        .feat:last-child { margin-bottom: 0; }
-
-        .f-icon {
-            color: #ffdf00;
-            margin-right: 10px;
-        }
-
-        /* Standard Ads Policy Footer */
-        footer {
-            margin-top: 30px;
-            font-size: 0.72rem;
-            color: #94a3b8;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-            text-align: justify;
-        }
-
-        .footer-links {
-            text-align: center;
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            margin: 0 8px;
+        .btn-green:hover { 
+            transform: scale(1.02);
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+<div class="main-card">
+    <h1>HIRA KING</h1>
+    <p class="sub-text">KHELO AUR JEETO DIGITAL COINS!</p>
+    
+    <div class="pot-wrapper">
+        <div class="live-coin lc1"></div>
+        <div class="live-coin lc2"></div>
+        <div class="live-coin lc3"></div>
         
-        <main class="casino-panel">
-            
-            <header>
-                <div class="logo">Hira King</div>
-            </header>
-
-            <h1>Welcome to <span>Grand Arena</span></h1>
-            <p class="tagline">Experience the ultimate point-based digital puzzle arena. Fun & safe interaction combined.</p>
-
-            <!-- Number Gaming Policy Safe Area -->
-            <div class="number-box-title">⚡ Live Lucky Draw Analysis ⚡</div>
-            <div class="number-animation-container">
-                <div class="num-slot ns1">7</div>
-                <div class="num-slot ns2">3</div>
-                <div class="num-slot ns3">9</div>
-                <div class="num-slot ns4">5</div>
-            </div>
-
-            <!-- INTEGRATED LEAD GEN FORM (Image 3) -->
-            <!-- Note: Setup form action/handler to process leads -->
-            <form class="lead-gen-form" action="#" method="POST">
-                <h2>Claim Your Daily Bonus</h2>
-                <p>Register now to receive a 1000 Point welcome bonus instantly!</p>
-                
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter Full Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="name@example.com" required>
-                </div>
-                
-                <button type="submit" class="submit-btn">Get My Bonus Now</button>
-            </form>
-
-            <!-- Main Download Button -->
-            <!-- Link your app download file here -->
-            <a href="YOUR_APK_LINK_HERE" class="btn-action">
-                🎮 DOWNLOAD APP FREE
-            </a>
-
-            <!-- Standard Feature Checklist -->
-            <div class="feature-box">
-                <div class="feat"><span class="f-icon">♦</span> Fast Point Updates & Live Results</div>
-                <div class="feat"><span class="f-icon">♦</span> Safe & Super Secure Lightweight APK</div>
-                <div class="feat"><span class="f-icon">♦</span> Smooth Skill-based Gameplay Fun</div>
-                <div class="feat"><span class="f-icon">♦</span> 24/7 Global Member Support Help</div>
-            </div>
-
-        </main>
-
-        <!-- Mandatory Facebook Policy Compliance Disclaimer -->
-        <footer>
-            <div class="footer-links">
-                <a href="#privacy">Privacy Policy</a> | 
-                <a href="#terms">Terms</a> | 
-                <a href="#rules">Rules</a>
-            </div>
-            <p>
-                Disclaimer: Hira King is a social gaming platform intended strictly for entertainment and analytical purposes. This app does not host, facilitate, or promote real-money gambling, cash deposits, or real currency prizes. All points and coins used inside the app have zero financial value. Safe for casual puzzle amusement.
-            </p>
-            <p style="text-align: center; margin-top: 15px;">&copy; 2026 Hira King Media Group. All Rights Reserved.</p>
-        </footer>
-
-    </div>
-
-</body>
-</html>
+        <img src="https://i
